@@ -14,8 +14,9 @@
                 </div>
                 <div class="col-md-6 col-md-6 col-sm-6 col-xs-6">
                   <div style="text-align:left; font-size:80%; word-wrap: break-word;"><b><%=strip_tags(@trends[i]["description"])%></b></div>
-                  <div><p style="font-size: 100%; text-align: justify; overflow-y: hidden; width: 100%; word-wrap: break-word;" ><%=%>....</p></div>
+                  <div><p style="font-size:100%; text-align:justify; overflow-y:hidden; width:100%; word-wrap:break-word;" >....</p></div>
                 </div>
+                <a href="<%=@trends[i]["url"]%>" class="btn btn-primary" style="float: right; margin-top: 0;"><%=@trends[i]["domain"]%></a>
               </div>
               <input id="app" type="hidden" name="Language" value="<%=@trends[i]["id"]%>">
             </div>
@@ -32,6 +33,7 @@
                     <div style="text-align:left; font-size:80%; word-wrap: break-word;"><b><%=strip_tags(@trends[i]["description"])%></b></div>
                     <div><p style="font-size: 100%; text-align: justify; overflow-y: hidden; width: 100%; word-wrap: break-word;" >....</p></div>
                   </div>
+                  <a href="<%=@trends[i]["url"]%>" class="btn btn-primary" style="display: block; float: right; margin-top: 0;" ><%=@trends[i]["domain"]%></a>
                 </div>
                 <input id="app" type="hidden" name="Language" value="<%=@trends[i]["id"]%>">
               </div>
