@@ -29,7 +29,7 @@
                     <img src="<%=@trends[i]["mediaUrl"]%>" style="width: 100%; margin-left: 0px;">
                   </div>
                   <div class="col-md-6 col-md-6 col-sm-6 col-xs-6">
-                    <div style="text-align:left; font-size:80%"><b><%=@trends[i]["description"]%></b></div>
+                    <div style="text-align:left; font-size:80%"><b><%=strip_tags(@trends[i]["description"])%></b></div>
                     <div><p style="font-size: 100%; text-align: justify; overflow-y: hidden; width: 100%" ><%=@trends[i]["tags"]%>....</p></div>
                   </div>
                 </div>
