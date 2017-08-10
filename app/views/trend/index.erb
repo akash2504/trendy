@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>CSS3 Animated Bubble Buttons | Tutorialzine Demo</title>
+
+  <link rel="stylesheet" type="text/css" href="css/page.css" />
+  <link rel="stylesheet" type="text/css" href="buttons/buttons.css" />
+
+</head>
+
+<body>
+
+<div id="buttonContainer">
+  <% @response['tags'][0..2].each do |tag| %>
+      <a href="#" class="button big blue" data-attr="tags" data-attr_value="<%=tag%>"><%= tag %></a>
+  <% end %>
+  <% @response['categories'][0..2].each do |c| %>
+      <a href="#" class="button big green" data-attr="categories" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
+  <% @response['celebreties'][0..2].each do |c| %>
+      <a href="#" class="button big orange" data-attr="celebreties" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
+  <% @response['tags'][3..6].each do |tag| %>
+      <a href="#" class="button middle blue" data-attr="tags" data-attr_value="<%=tag%>"><%= tag %></a>
+  <% end %>
+  <% @response['categories'][3..6].each do |c| %>
+      <a href="#" class="button middle green" data-attr="categories" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
+  <% @response['celebreties'][3..6].each do |c| %>
+      <a href="#" class="button middle orange" data-attr="celebreties" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
+  <% @response['tags'][7..9].each do |tag| %>
+      <a href="#" class="button small blue" data-attr="tags" data-attr_value="<%=tag%>"><%= tag %></a>
+  <% end %>
+  <% @response['categories'][7..9].each do |c| %>
+      <a href="#" class="button small green" data-attr="categories" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
+  <% @response['celebreties'][7..9].each do |c| %>
+      <a href="#" class="button small orange" data-attr="celebreties" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
+</div>
+<div id="searchresult" class="row">
+    </div>
+</body>
+</html>
+
+<%= javascript_include_tag 'index' %>

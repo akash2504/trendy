@@ -1,5 +1,7 @@
 Trendy::Application.routes.draw do
   match "/trends" => "trend#home"
+  match "trends/index" => "trend#index"
+  match "trends/search" => "trend#search"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
