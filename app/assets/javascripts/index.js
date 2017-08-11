@@ -25,11 +25,12 @@ $(".button").click(function(){
 });
 
 $(".downvote").click(function(){
+    var trendid = this.dataset.trendid
     $.ajax({
-        url: "/trends/downvote?id=this.value",
+        url: "/trends/downvote?id=" + this.dataset.trendid,
         type: "POST",
         success: function (result) {
-            $('#'+this.value).hide()
+            $('#'+trendid).hide();
         }
     })
 });

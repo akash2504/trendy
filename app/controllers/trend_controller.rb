@@ -15,6 +15,7 @@ class TrendController < ApplicationController
   end
   def downvote
     id=params["id"]
-    RestClient.post('http://172.20.44.29:3000/sizzles/invalid?id='+id)
+    RestClient.post('http://172.20.44.29:3000/sizzles/invalidate?id='+id,{}.to_json)
+    render json: {:message => "Done"}
   end
 end
