@@ -21,6 +21,9 @@
   <% @response['celebreties'].each do |c| %>
       <a href="#" class="button middle orange" data-attr="celebreties" data-attr_value="<%= c %>"><%= c %></a>
   <% end %>
+  <% @response['domains'].each do |c| %>
+      <a href="#" class="button middle gray" data-attr="domain" data-attr_value="<%= c %>"><%= c %></a>
+  <% end %>
 </div>
 <div class="container" id="searchresult">
 
