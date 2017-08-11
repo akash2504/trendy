@@ -1,45 +1,118 @@
+<%@map = {
+    "instagram"=>"assets/instagram.png",
+    "Akanksha Redhu"=>"assets/akanksharedhu.png",
+    "Miss Malini"=>"assets/missmalini.png",
+    "Elan Street"=>"assets/elanstreet.png",
+    "Elle"=>"assets/elle.png",
+    "Miss Style Fiesta"=>"assets/Missstylefiest.png",
+    "Love & other Bugs"=>"assets/loveandotherbugs.png",
+    "Looking Good Feeling Fab"=>"assets/lookinggoodfeelingfab"
+}%>
+<%@map_height = {
+    "instagram"=>"30",
+    "Akanksha Redhu"=>"100",
+    "Miss Malini"=>"80",
+    "Elan Street"=>"150",
+    "Elle"=>"100",
+    "Miss Style Fiesta"=>"200",
+    "Love & other Bugs"=>"200",
+    "Looking Good Feeling Fab"=>"200"
+}%>
+<%@map_width = {
+    "instagram"=>"30",
+    "Akanksha Redhu"=>"100",
+    "Miss Malini"=>"80",
+    "Elan Street"=>"150",
+    "Elle"=>"100",
+    "Miss Style Fiesta"=>"200",
+    "Love & other Bugs"=>"200",
+    "Looking Good Feeling Fab"=>"200"
+}%>
 <br/>
 <br/>
 <br/>
 <div class="container">
   <%i=0%>
   <%while i<@trends.length%>
-      <div id="<%=@trends[i]["id"]%>" class="link" href="#" >
+      <div  class="link" href="#" >
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div id="<%=@trends[i]["id"]%>" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="thumbnail jumbotron" style="padding-left:1%; margin-top:3%; padding-right:2%;">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                  <img src="<%=@trends[i]["media_url"]%>" style="width:100%; margin-left:0px;">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="height:265px;" align="center">
+                  <img class="img-responsive" src="<%=@trends[i]["media_url"]%>" style="width:100%; height:220px; margin-left:0px;">
+                  <%@t=[]%>
+                  <%@trends[i]["metadatas"].each do |meta|%>
+                    <%if meta["attr_name"]=="tag"%>
+                          <%@t<<meta["attr_value"]%>
+                    <%end%>
+                  <%end%>
+                  <%k=7%>
+                  <%while k>0%>
+                      <span class="label label-info"><%=@t[k]%></span>
+                    <%k=k-1%>
+                  <%end%>
                 </div>
-                <div class="col-md-6 col-md-6 col-sm-6 col-xs-6">
-                  <div style="text-align:left; font-size:80%; word-wrap: break-word;"><i><%=strip_tags(@trends[i]["description"])%></i></div>
-                  <div><p style="font-size:100%; text-align:justify; overflow-y:hidden; width:100%; word-wrap:break-word;" >....</p></div>
-                </div>
-                <div class="container">
+                <div>
+                  <%if @map[@trends[i]["domain"]]!=nil%>
+                      <a href="<%=@trends[i]["url"]%>" class="" style="float: left; margin-top: 0;"><img border="0" alt="abc" src="<%=@map[@trends[i]["domain"]]%>" width="<%=@map_width[@trends[i]["domain"]]%>" height="<%=@map_height[@trends[i]["domain"]]%>"></a>
+                  <%else%>
+                      <a href="<%=@trends[i]["url"]%>" class="btn btn-primary" style="float: left; margin-top: 0;"><%=@trends[i]["domain"]%></a>
+                  <%end%>
                 <button type="button" class="btn btn-success" style="float: right; margin-top: 0;"><%=@trends[i]["tags"]%></button>
-                <a href="<%=@trends[i]["url"]%>" class="btn btn-primary" style="float: right; margin-top: 0;"><%=@trends[i]["domain"]%></a>
+                </div>
+                <br>
+                <br>
+                <div class="col-md-6 col-md-6 col-sm-6 col-xs-6">
+                  <div style="text-align:left; font-size:80%; word-wrap: break-word;"><i><%=strip_tags(@trends[i]["description"][0,200])%></i></div>
+                  <div><p style="font-size:100%; text-align:justify; overflow-y:hidden; width:100%; word-wrap:break-word;" >....</p></div>
+                  <br>
+                  <br>
+                  <br>
+
+                  <a  value="<%=@trends[i]['id']%>" class="downvote btn btn-warning btn-lg">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                  </a>
                 </div>
               </div>
               <input id="app" type="hidden" name="Language" value="<%=@trends[i]["id"]%>">
             </div>
             </div>
+
             <%i=i+1%>
             <%if i<@trends.length %>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="thumbnail jumbotron" style="padding-left: 1%; margin-top: 3%; padding-right: 2%;">
                 <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <img src="<%=@trends[i]["media_url"]%>" style="width: 100%; margin-left: 0px;">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="height:265px;" align="center">
+                    <img class="img-responsive" src="<%=@trends[i]["media_url"]%>" style="width:100%; height:220px; margin-left:0px;">
+                    <%@t=[]%>
+                    <%@trends[i]["metadatas"].each do |meta|%>
+                        <%if meta["attr_name"]=="tag"%>
+                            <%@t<<meta["attr_value"]%>
+                        <%end%>
+                    <%end%>
+                    <%k=7%>
+                    <%while k>0%>
+                        <span class="label label-info"><%=@t[k]%></span>
+                        <%k=k-1%>
+                    <%end%>
                   </div>
+                  <div>
+                  <%if @map[@trends[i]["domain"]]!=nil%>
+                      <a href="<%=@trends[i]["url"]%>" class="" style="float: left; margin-top: 0;"><img border="0" alt="abc" src="<%=@map[@trends[i]["domain"]]%>" width="<%=@map_width[@trends[i]["domain"]]%>" height="<%=@map_height[@trends[i]["domain"]]%>"></a>
+                  <%else%>
+                      <a href="<%=@trends[i]["url"]%>" class="btn btn-primary" style="float: left; margin-top: 0;"><%=@trends[i]["domain"]%></a>
+                  <%end%>
+                  <button type="button" class="btn btn-success" style="float: right; margin-top: 0;"><%=@trends[i]["tags"]%></button>
+                  </div>
+                  <br>
+                  <br>
                   <div class="col-md-6 col-md-6 col-sm-6 col-xs-6">
-                    <div style="text-align:left; font-size:80%; word-wrap: break-word;"><i><%=strip_tags(@trends[i]["description"])%></i></div>
+                    <div style="text-align:left; font-size:80%; word-wrap: break-word;"><i><%=strip_tags(@trends[i]["description"][0,200])%></i></div>
                     <div><p style="font-size: 100%; text-align: justify; overflow-y: hidden; width: 100%; word-wrap: break-word;" >....</p></div>
                   </div>
-                  <div class="container">
-                  <button type="button" class="btn btn-success" style="float: right; margin-top: 0;"><%=@trends[i]["tags"]%></button>
-                  <a href="<%=@trends[i]["url"]%>" class="btn btn-primary" style="display: block; float: right; margin-top: 0;" ><%=@trends[i]["domain"]%></a>
-                    </div>
+
                 </div>
                 <input id="app" type="hidden" name="Language" value="<%=@trends[i]["id"]%>">
               </div>
@@ -50,3 +123,4 @@
       </div>
   <%end%>
 </div>
+<%= javascript_include_tag 'index' %>

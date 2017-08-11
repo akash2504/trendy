@@ -13,4 +13,8 @@ class TrendController < ApplicationController
     @trends=JSON.parse(RestClient.get('http://172.20.44.29:3000/sizzles/search?tags='+searchTerms))
     @trends
   end
+  def downvote
+    id=params["id"]
+    RestClient.post('http://172.20.44.29:3000/sizzles/invalid?id='+id)
+  end
 end
