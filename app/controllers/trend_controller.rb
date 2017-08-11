@@ -6,6 +6,10 @@ class TrendController < ApplicationController
 
   def search
     response = JSON.parse(RestClient.get("http://172.20.44.29:3000/sizzles/search?#{URI::encode(params[:attr_name])}=#{URI::encode(params[:attr_value])}&count=20"))
+    # response.each do |r|
+    #   tags =r['metadatas'].select{|a| a['attr_name'] == 'tag'}.collect{|a| a['attr_value']}
+    #   r['attr_tags'] = tags
+    # end
     render json: response
   end
   def home
